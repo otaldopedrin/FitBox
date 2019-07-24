@@ -13,7 +13,9 @@
             $list = $this->connection->prepare($sql);
             $list->execute();
 
-            return $list->fetchAll();
+            
+
+            return json_encode($list->fetchAll());
         }
 
         public function find($field, $value){
@@ -22,7 +24,7 @@
             $list->bindValue(1, $value);
             $list->execute();
 
-            return $list->fetch();
+            return json_encode($list->fetch());
         }
 
         public function delete($field, $value){
