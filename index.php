@@ -1,6 +1,4 @@
 <?php
-    require_once "sqlmethods/Table.php";
-    require_once "sqlmethods/Security.php";
     require_once "basemethods/External.php";
 
     $data = [
@@ -18,5 +16,7 @@
 
     $id_user = 1;
 
-    $a = new Table;
-    $a->update($data2);
+    $a = new External;
+    $b = $a->import('asd.csv', 1);
+
+    print_r($b[0]);
