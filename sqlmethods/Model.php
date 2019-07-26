@@ -25,7 +25,16 @@
             $list->bindValue(1, $value);
             $list->execute();
 
-            return json_encode($list->fetch());
+            return $list->fetchAll();
+        }
+
+        public function findOne($field, $value){
+            $sql = 'select * from '.$this->table.' where '.$field.' = ?';
+            $list = $this->connection->prepare($sql);
+            $list->bindValue(1, $value);
+            $list->execute();
+
+            return $list->fetch();
         }
 
         public function delete($field, $value){

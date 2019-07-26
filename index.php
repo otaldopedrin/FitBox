@@ -14,9 +14,7 @@
         'id' => '1'
     ];
 
-    $id_user = 1;
 
     $a = new External;
-    $b = $a->import('asd.csv', 1);
-
-    print_r($b[0]);
+    $b = $a->export(1);
+    print_r($b);

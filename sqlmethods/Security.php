@@ -10,11 +10,12 @@
             }
         }
 
-        public function validatePassword($senha){
+        public function encryptPass($senha){
             $custo = 12;
             $salt = 'Dd7j52lGBbChAHkgD8E8kJ';
 
             $hash = crypt($senha, '$2a$' . $custo . '$' . $salt . '$');
             return $senha;
         }
+
     }

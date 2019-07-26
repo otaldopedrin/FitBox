@@ -18,6 +18,26 @@
             }
             
             fclose($open);
-            return $data;
+        }
+
+
+        public function export($id_tabela){
+            $produto = new Product;
+            $produtos = $produto->find('id_tabela', 1);
+
+            $tabela = fopen('tabela.csv', 'w');
+            fwrite($tabela, "nome;cod;quant;preco\r\n");
+
+            foreach ($produtos as $key => $value) {
+                fwrite($tabela, $value['nome'].";".$value['cod'].";".$value['quant'].";".$value['preco']."\r\n");
+            }
+
+            $arquivo = 'tabela.csv';
+             
+            header("Content-Length: ".filesize($arquivo)); 
+            header("Content-Disposition: attachment; filename=".basename($arquivo)); 
+
+            readfile($arquivo);
+            exit;
         }
     }
