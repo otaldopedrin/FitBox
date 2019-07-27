@@ -25,7 +25,9 @@
             $list->bindValue(1, $value);
             $list->execute();
 
-            return $list->fetchAll();
+            $lista = $list->fetchAll();
+            
+            return $lista;
         }
 
         public function findOne($field, $value){

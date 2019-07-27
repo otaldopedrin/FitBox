@@ -1,5 +1,6 @@
 <?php
     require_once "basemethods/External.php";
+    require_once "sqlmethods/User.php";
 
     $data = [
         'nome' => 'Josdadsaasdo',
@@ -13,7 +14,6 @@
         'nome' => 'gf',
         'id' => '1'
     ];
-
 
     $a = new External;
     $b = $a->export(1);

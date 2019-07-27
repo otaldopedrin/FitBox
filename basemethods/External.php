@@ -36,8 +36,8 @@
              
             header("Content-Length: ".filesize($arquivo)); 
             header("Content-Disposition: attachment; filename=".basename($arquivo)); 
-
             readfile($arquivo);
+            unlink($arquivo);
             exit;
         }
     }
