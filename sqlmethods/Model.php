@@ -14,9 +14,7 @@
             $list = $this->connection->prepare($sql);
             $list->execute();
 
-            
-
-            return json_encode($list->fetchAll());
+            return $list->fetchAll();
         }
 
         public function find($field, $value){
@@ -24,10 +22,8 @@
             $list = $this->connection->prepare($sql);
             $list->bindValue(1, $value);
             $list->execute();
-
-            $lista = $list->fetchAll();
             
-            return $lista;
+            return $list->fetchAll();
         }
 
         public function findOne($field, $value){
@@ -35,7 +31,7 @@
             $list = $this->connection->prepare($sql);
             $list->bindValue(1, $value);
             $list->execute();
-
+            
             return $list->fetch();
         }
 

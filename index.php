@@ -1,6 +1,6 @@
 <?php
     require_once "basemethods/External.php";
-    require_once "sqlmethods/User.php";
+    require_once "sqlmethods/Logger.php";
 
     $data = [
         'nome' => 'Josdadsaasdo',
@@ -15,6 +15,6 @@
         'id' => '1'
     ];
 
-    $a = new External;
-    $b = $a->export(1);
-    print_r($b);
+    $login = new Logger;
+    $a = $login->cadastrar($data);
+    print_r($a);
