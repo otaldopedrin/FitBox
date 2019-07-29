@@ -5,8 +5,8 @@
     $data = [
         'nome' => 'Josdadsaasdo',
         'sobrenome' => 'Ffadsddfaea',
-        'email' => '2@w2e',
-        'senha' => '123',
+        'email' => 'asddsa@gskma.com',
+        'senha' => '123654563234',
         'cpf' => '12345678910',
     ];
 
@@ -17,4 +17,5 @@
 
     $login = new Logger;
     $a = $login->cadastrar($data);
+    //$a = $login->loggar($data['email'], $data['senha']);
     print_r($a);

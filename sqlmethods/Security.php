@@ -13,7 +13,7 @@
         public function encryptPass($senha){
             $custo = 12;
             $salt = 'Dd7j52lGBbChAHkgD8E8kJ';
-            $senha = $this->sanitizeString($senha);
+            $senha = filter_var($senha, FILTER_SANITIZE_STRING);
 
             $hash = crypt($senha, '$2a$' . $custo . '$' . $salt . '$');
             

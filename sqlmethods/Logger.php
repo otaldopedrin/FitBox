@@ -5,25 +5,26 @@
         public function loggar($email, $senha){
             $seg = new Security;
             $user = new User;
-
+            
             $email = $seg->validateEmail($email);
             $senha = $seg->sanitizeString($senha);
             $senha = $seg->encryptPass($senha);
 
             if($email !== false){
                 $data = $user->findOne('email', $email);
-            }else{
-                return 'email errado';
-            }
 
-            if($data == false){
-                return 'email nao encontrado';
-            }else{
-                if ($data['email'] == $email && $data['senha'] == $senha) {
-                    return 'logado';
+                if($data == false){
+                    return 'erro 2';
                 }else{
-                    return 'senha errada';
+                    if ($data['email'] == $email && $data['senha'] == $senha) {
+                        return 'logado';
+                    }else{
+                        return 'erro 3';
+                    }
                 }
+
+            }else{
+                return 'erro 1';
             }
         }
 
@@ -36,14 +37,18 @@
             }
 
             $dados['email'] = $seg->validateEmail($data['email']);
-            $dados['senha'] = $seg->sanitizeString($data['senha']);
             $dados['senha'] = $seg->encryptPass($data['senha']);
 
+            $email = $user->findOne('email', $dados['email']);
 
-            if($user->insert($dados)){
-                return true;
+            if($email == false){
+                if($user->insert($dados)){
+                    return true;
+                }else{
+                    return 'nao foi possivel cadastrar';
+                }
             }else{
-                return false;
+                return 'email já existe';
             }
         }
 

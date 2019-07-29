@@ -6,7 +6,6 @@
 
         public function insert(array $data){
             $seg = new Security;
-            $data['senha'] = $seg->encryptPass($data['senha']);
 
             $sql = "insert into ".$this->table." (nome, sobrenome, email, senha, cpf) values(:nome, :sobrenome, :email, :senha, :cpf)";
 
