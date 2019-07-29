@@ -1,6 +1,6 @@
 <?php
     require_once "basemethods/External.php";
-    require_once "sqlmethods/Logger.php";
+    require_once "admmethods/Logger.php";
 
     $data = [
         'nome' => 'Josdadsaasdo',

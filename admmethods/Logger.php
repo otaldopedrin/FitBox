@@ -1,5 +1,5 @@
 <?php
-    require_once 'User.php';
+    require_once './sqlmethods/User.php';
     
     class Logger{
         public function loggar($email, $senha){
