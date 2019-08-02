@@ -1,5 +1,5 @@
 <?php
-    require_once './sqlmethods/User.php';
+    require_once '../sqlmethods/User.php';
     
     class Logger{
         public function loggar($email, $senha){
@@ -14,17 +14,17 @@
                 $data = $user->findOne('email', $email);
 
                 if($data == false){
-                    return 'erro 2';
+                    header("Location: ".$_SERVER['HTTP_REFERER']."?error");
                 }else{
                     if ($data['email'] == $email && $data['senha'] == $senha) {
                         return 'logado';
                     }else{
-                        return 'erro 3';
+                        header("Location: ".$_SERVER['HTTP_REFERER']."?error");
                     }
                 }
 
             }else{
-                return 'erro 1';
+                header("Location: ".$_SERVER['HTTP_REFERER']."?error");
             }
         }
 

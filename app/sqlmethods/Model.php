@@ -1,6 +1,6 @@
 <?php
-    require_once "./core/Connection.php";
-    require_once "./basemethods/Security.php";
+    require_once "../core/Connection.php";
+    require_once "../basemethods/Security.php";
 
     abstract class Model{
         protected $connection;
