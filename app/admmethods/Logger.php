@@ -43,7 +43,8 @@
 
             if($email == false){
                 if($user->insert($dados)){
-                    return true;
+                    echo "cadastrado";
+                    $this->loggar($dados['email'], $dados['senha']);
                 }else{
                     return 'nao foi possivel cadastrar';
                 }
