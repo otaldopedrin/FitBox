@@ -26,4 +26,7 @@
             return $string;
         }
 
+        public function validateTable($tabela){
+
+        }
     }

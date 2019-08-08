@@ -1,6 +1,6 @@
 <?php
-    require_once "./sqlmethods/Table.php";
-    require_once "./sqlmethods/Product.php";
+    require_once "../sqlmethods/Table.php";
+    require_once "../sqlmethods/Product.php";
 
     class External{
         public function import($arquivo, $id_tabela){
@@ -39,5 +39,16 @@
             readfile($arquivo);
             unlink($arquivo);
             exit;
+        }
+
+        public function importProfileImage($image){
+            $type = $image['type'];
+            $formato = explode('/', $type);
+            $format = $formato[1];
+            
+            if($type == 'image/png' or $type == 'image/jpg' or $type == 'image/jpeg'){
+                $name = md5($image['name'].rand(1,999)).'.'.$format;
+                move_uploaded_file($image['tmp_name'], '../../public/imgs/profiles/'.$name);
+            }
         }
     }

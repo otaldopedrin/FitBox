@@ -9,5 +9,9 @@
 <body>
     <a href="login">Login</a><br>
     <a href="cadastro">Cadastro</a><br>
+    <form enctype="multipart/form-data" action="app/controllers/profilePhoto.php" method="post">
+        <input name="foto" type="file">
+        <input type="submit" value="top">
+    </form>
 </body>
 </html>
