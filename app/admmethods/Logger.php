@@ -17,7 +17,7 @@
                     header("Location: ".$_SERVER['HTTP_REFERER']."?error");
                 }else{
                     if ($data['email'] == $email && $data['senha'] == $senha) {
-                        return 'logado';
+                        header("Location: /my/tccc/public/views/system.php");
                     }else{
                         header("Location: ".$_SERVER['HTTP_REFERER']."?error");
                     }
@@ -43,8 +43,7 @@
 
             if($email == false){
                 if($user->insert($dados)){
-                    echo "cadastrado";
-                    $this->loggar($dados['email'], $dados['senha']);
+                    return true;
                 }else{
                     return 'nao foi possivel cadastrar';
                 }

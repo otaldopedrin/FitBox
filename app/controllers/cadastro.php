@@ -5,4 +5,7 @@
     $data = $_POST;
 
     $response = $logger->cadastrar($data);
-    echo($response);
+
+    if($response == true){
+        $logger->loggar($_POST['email'], $_POST['senha']);
+    }
