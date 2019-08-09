@@ -1,8 +1,10 @@
 <?php
     require_once '../sqlmethods/User.php';
+    require_once '../basemethods/Auth.php';
     
     class Logger{
         public function loggar($email, $senha){
+            $auth = new Auth;
             $seg = new Security;
             $user = new User;
             
@@ -17,7 +19,8 @@
                     header("Location: ".$_SERVER['HTTP_REFERER']."?error");
                 }else{
                     if ($data['email'] == $email && $data['senha'] == $senha) {
-                        header("Location: /my/tccc/public/views/system.php");
+                        $auth->createSession($data['id'], $data['type']);
+                        header("Location: /my/tccc/system");
                     }else{
                         header("Location: ".$_SERVER['HTTP_REFERER']."?error");
                     }
@@ -43,7 +46,7 @@
 
             if($email == false){
                 if($user->insert($dados)){
-                    return true;
+                    $this->loggar($dados['email'], $dados['senha']);
                 }else{
                     return 'nao foi possivel cadastrar';
                 }

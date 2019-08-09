@@ -7,7 +7,7 @@
         public function insert(array $data){
             $seg = new Security;
 
-            $sql = "insert into ".$this->table." (nome, sobrenome, email, senha, cpf) values(:nome, :sobrenome, :email, :senha, :cpf)";
+            $sql = "insert into ".$this->table." (nome, sobrenome, email, senha, cpf, type) values(:nome, :sobrenome, :email, :senha, :cpf, 0)";
 
             $insert = $this->connection->prepare($sql);
 

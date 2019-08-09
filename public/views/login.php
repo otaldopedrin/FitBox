@@ -1,3 +1,8 @@
+<?php
+  require_once 'app/basemethods/Auth.php';
+  $auth = new Auth;
+  $auth->sessionVerification();
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
