@@ -27,11 +27,14 @@
         }
 
         public function validateTable($tabela){
-
+            if ($tabela['type'] == "application/vnd.ms-excel") {
+                return true;
+            }else{
+                return false;
+            }
         }
 
         public function formatCpf($cpf){
-            
             $cpf = explode('.', $cpf);
             $cpf[2] = explode('-', $cpf[2]);
             $cpf = $cpf[0].$cpf[1].$cpf[2][0].$cpf[2][1];

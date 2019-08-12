@@ -4,10 +4,6 @@
 
   $auth = new Auth;
   $auth->sessionVerification();
-
-  $a = new Security;
-  $b = $a->validateCpf('535.729.611-14');
-  var_dump($b);
 ?>
 <!DOCTYPE html>
 <html lang="en">
