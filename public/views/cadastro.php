@@ -26,6 +26,7 @@
         <input class = "form-control" name="nome" placeholder="Nome">
         <input class = "form-control" name="sobrenome" placeholder="Sobrenome">
         <input class = "form-control" name="senha" placeholder="Senha">
+        <input class = "form-control" name="confirmSenha" placeholder="Comfirme sua senha">
         <input class = "form-control" name="email" placeholder="Email">
         <input class = "form-control" name="cpf" placeholder="CPF">
         <button type="submit" class="btn btn-info" id=logf>Cadastre-se</button> <!--- btn-Cadastro -->
